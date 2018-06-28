@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+       <div>
+           <a class="btn btn-default" href="edit/"><span class="glyphicon glyphicon-pencil"></span></a>
+           <h2>{{name}} {{fname}}</h2>
+           <p>{{instance.status}}</p>
+           <p>Баланс {{instance.balance}}</p>
+       </div>
+{% endblock %}
