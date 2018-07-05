@@ -1,0 +1,11 @@
+{% extends 'workers/base.html' %}
+
+{% block content %}
+       <div>
+           <a class="btn btn-default" href="{% url 'edit' id=instance.id %}"><span class="glyphicon glyphicon-edit"></span></a>
+           <a class="btn btn-default" href="{% url 'delete' id=instance.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+           <h2>{{name}} {{fname}}</h2>
+           <p>{{instance.status}}</p>
+           <p>Баланс {{instance.balance}}</p>
+       </div>
+{% endblock %}

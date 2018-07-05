@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
+
 # Create your models here.
+# from otdels.models import Otdel
 
 
 class Worker(models.Model):
@@ -10,6 +12,9 @@ class Worker(models.Model):
     # status = models.IntegerField(choices=)
     create_date = models.DateTimeField('Дата создания', default = timezone.now)
     balance = models.FloatField('Баланс денег', default = 0)
+    otdel = models.ForeignKey('otdels.Otdel', default=0)    #
+    # otd = Otdel()
+
     class Meta:
         """Служит для перевода класса Post"""
         verbose_name = 'Рабочий'
@@ -48,3 +53,6 @@ class Adress(models.Model):
     def __str__(self):
         return 'Домашний адрес: {}, {}, {}, {}, {}, {}'.format(self.indx, self.region, self.sity, self.street, self.home,
                                                                  self.flat)
+
+
+

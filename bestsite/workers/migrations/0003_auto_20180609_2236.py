@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hardwork', '0002_auto_20180606_2342'),
+        ('workers', '0002_auto_20180606_2342'),
     ]
 
     operations = [
@@ -28,6 +28,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contact',
             name='id_worker',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='hardwork.Worker'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='workers.Worker'),
         ),
     ]

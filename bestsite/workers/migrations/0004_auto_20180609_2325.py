@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hardwork', '0003_auto_20180609_2236'),
+        ('workers', '0003_auto_20180609_2236'),
     ]
 
     operations = [
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('street', models.CharField(max_length=50)),
                 ('home', models.IntegerField(max_length=9999)),
                 ('flat', models.IntegerField(max_length=9999)),
-                ('worker', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='hardwork.Worker')),
+                ('worker', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='workers.Worker')),
             ],
         ),
         migrations.RenameField(

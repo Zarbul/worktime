@@ -1,0 +1,11 @@
+{% extends 'otdels/base.html' %}
+
+{% block content %}
+        <!--<h1>{{title}}</h1>-->
+        {% for i in otdels %}
+           <p>
+               <a href="{% url 'otdels:detail' id=i.id %}">{{i.name}}</a>
+           </p>
+
+        {% endfor %}
+{% endblock %}
