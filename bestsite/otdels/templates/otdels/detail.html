@@ -1,14 +1,23 @@
-{% extends 'otdels/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
        <div>
-           <a class="btn btn-default" href="{% url 'otdels:edit' id=id %}"><span class="glyphicon glyphicon-edit"></span></a>
-           <a class="btn btn-default" href="{% url 'otdels:delete' id=id %}"><span class="glyphicon glyphicon-remove"></span></a>
+
+           <a class="button small" href="{% url 'otdels:edit' id=id %}"><span>Редактировать</span></a>
+           <a class="button small" href="{% url 'otdels:delete' id=id %}"><span>Удалить</span></a>
 
            <!--доделать кнопку удаления-->
 
            <h2>{{name}}</h2>
 
            <!--вывести список рабочих входящих в отдел-->
+
+       {% for i in otdel %}
+
+           {% if i.otdel.id ==  id  %}
+                <p><a href="{% url 'detail' id=i.id %}">{{ i.name }} {{ i.fname }}</p>
+           {% endif %}
+        {% endfor %}
+
        </div>
 {% endblock %}

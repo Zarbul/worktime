@@ -1,10 +1,10 @@
-{% extends 'workers/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <h1>Добавь еще раба</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         {{contact.as_p}}
-        <button type="submit" class="save btn btn-default">Добавить</button>
+        <button type="submit" class="button small">Добавить</button>
     </form>
 {% endblock %}

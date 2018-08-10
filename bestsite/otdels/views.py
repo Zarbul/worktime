@@ -1,4 +1,6 @@
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
+
+from workers.models import Worker
 from .models import Otdel
 from .forms import OtdelsNameForm
 from django.utils import timezone
@@ -15,12 +17,14 @@ def home(request):
 
 def detail(request, id=None):
     inst = get_object_or_404(Otdel, id=id)
+    worker_list = Worker.objects.all
     content = {
         'id': inst.id,
         'name': inst.name,
+        'otdel': worker_list,
     }
-    return render(request, 'otdels/detail.html', content)
 
+    return render(request, 'otdels/detail.html', content)
 
 
 def new(request, id=None):

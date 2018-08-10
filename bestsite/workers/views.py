@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404, redi
 from .models import Worker
 from .forms import WorkerNameForm, ContactForm
 from django.utils import timezone
-# from ..bestsite import urls
+from django.contrib import auth
 
 
 def home(request):
@@ -10,6 +10,7 @@ def home(request):
     content = {
         # 'title': 'Список рабочих',
         'workers': list_workers,
+        'username': auth.get_user(request).username,
     }
     return render(request, 'workers/index.html', content)
 
@@ -22,6 +23,8 @@ def detail(request, id=None):
         'name': instance.name,
         'fname': instance.fname,
         'instance': instance,
+        'otdel': instance.otdel,
+        'username': auth.get_user(request).username,
     }
     return render(request, 'workers/detail.html', content)
 

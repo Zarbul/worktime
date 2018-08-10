@@ -1,10 +1,10 @@
-{% extends 'otdels/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-    <h1>Добавь еще отдел</h1>
+    <h4>Добавь еще отдел</h4>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <!--{{contact.as_p}}-->
-        <button type="submit" class="save btn btn-default">Добавить</button>
+        <button type="submit" class="button small">Добавить</button>
     </form>
 {% endblock %}

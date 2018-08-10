@@ -38,7 +38,7 @@ class Contact(models.Model):
 
 
 class Adress(models.Model):
-    indx = models.IntegerField('Индекс', max_length=6)
+    indx = models.IntegerField('Индекс')
     region = models.CharField('Регион проживания', max_length=50)
     sity = models.CharField('Город проживания', max_length=50)
     street = models.CharField('Улица', max_length=50)

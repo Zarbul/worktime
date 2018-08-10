@@ -1,18 +1,12 @@
-{% extends 'workers/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-        <!--<h1>{{title}}</h1>-->
+    <h4>Информация о рабочих</h4>
+    <a class="button small" href="{% url 'new' %}"><span>Добавить</span></a>
         {% for i in workers %}
            <p>
                <a href="{% url 'detail' id=i.id %}">{{i.name}} {{ i.fname}}</a>
-               <!--{{i.name}} {{ i.fname}}-->
-                <!--<a href="/update/{{i.id}}">Изменить</a>-->
            </p>
-
-<!--<p>{{i.status}}</p>-->
-<!--<p>Баланс {{i.balance}}</p>-->
-<!--<form>-->
-<!--<input type="button" value="изменить" formaction="/update/">-->
-<!--</form>-->
         {% endfor %}
+
 {% endblock %}

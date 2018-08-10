@@ -1,9 +1,9 @@
-{% extends 'otdels/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <h1>Измени своего раба</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Изменить</button>
+        <button type="submit" class="button small">Изменить</button>
     </form>
 {% endblock %}

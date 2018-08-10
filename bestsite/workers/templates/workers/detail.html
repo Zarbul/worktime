@@ -1,11 +1,16 @@
-{% extends 'workers/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-       <div>
-           <a class="btn btn-default" href="{% url 'edit' id=instance.id %}"><span class="glyphicon glyphicon-edit"></span></a>
-           <a class="btn btn-default" href="{% url 'delete' id=instance.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+
+           <a class="button small" href="{% url 'edit' id=instance.id %}"><span>Редактировать</span></a>
+           <a class="button small" href="{% url 'delete' id=instance.id %}"><span>Удалить</span></a>
            <h2>{{name}} {{fname}}</h2>
-           <p>{{instance.status}}</p>
-           <p>Баланс {{instance.balance}}</p>
-       </div>
+
+           <p>Статус: {{instance.status}}</p>
+
+           <p>Баланс: {{instance.balance}} денег</p>
+
+           <p>Отдел: {{instance.otdel}}</p>
+
+
 {% endblock %}

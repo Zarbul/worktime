@@ -1,54 +1,49 @@
 <!DOCTYPE html>
-
+{% load staticfiles %}
 <html>
 
     <head>
         <title>Информация о рабах</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-         <style>
-           ul.hr {
-            margin: 0; /* Обнуляем значение отступов */
-            padding: 4px; /* Значение полей */
-           }
-           ul.hr li {
-            display: inline; /* Отображать как строчный элемент */
-            margin-right: 5px; /* Отступ слева */
-            border: 1px solid #000; /* Рамка вокруг текста */
-            padding: 3px; /* Поля вокруг текста */
-           }
-         </style>
+       <link href="{% static 'workers/css/main.css' %}" rel="stylesheet" type='text/css'>
+        <link href="{% static 'workers/css/foundation.css' %}" rel="stylesheet" type='text/css'>
+        <link href="{% static 'workers/css/foundation.min.css' %}" rel="stylesheet" type='text/css'>
 
     </head>
 
     <body>
-
-        <div class="page-header">
-                <div class="zcm">
-                    <ul class="hr">
-                        <li class="zcm__item"><a href="/workers/">Список рабов</a></li>
-                        <li class="zcm__item"><a href="/otdels/">Список отделов</a></li>
+        <!--кнопки для авторизации-->
+        <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar">
+            {% if user.is_authenticated %}
+                <div class="top-bar-left">
+                        <ul class="menu simple vertical medium-horizontal">
+                            <li><a href="/workers/">Список рабов</a></li>
+                            <li><a href="/otdels/">Список отделов</a></li>
+                        </ul>
+                 </div>
+                <div class="top-bar-right">
+                    <ul class="menu simple vertical medium-horizontal">
+                         <li><a href="/auth/logout/">Выйти ({{ user.username }})</a> </li>
+            {% else %}
+                         <li><a href="/auth/login">Войти</a> </li>
                     </ul>
-
                 </div>
+
+                </section>
+            {% endif %}
         </div>
+        </div>
+        <!--###-->
 
+       <div class="container">
+            <div class="content">
+                {% if user.is_authenticated %}
+                    {% block content %}{% endblock %}
+                {% else %}
+                    <p>Необходимо авторизоваться</p>
+                {% endif %}
 
-        <!--<div class="page-header">-->
-
-            <!--<h1><a href="/workers/">Список рабов</a></h1>-->
-            <!--<h1><a href="/otdels/">Список отделов</a></h1>-->
-        <!--</div>-->
-            <a href="/new" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
-                </div>
+                {% block login %}{% endblock %}
             </div>
         </div>
 

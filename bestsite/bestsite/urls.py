@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^workers/', include('workers.urls')),
     url(r'^otdels/', include('otdels.urls')),
+    url(r'^auth/', include('loginsys.urls')),
     url(r'^$', views.home, name='index'),
+
 ]

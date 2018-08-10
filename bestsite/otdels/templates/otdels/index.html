@@ -1,7 +1,8 @@
-{% extends 'otdels/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-        <!--<h1>{{title}}</h1>-->
+        <h4>Информация об отделах</h4>
+        <a class="button small" href="{% url 'otdels:new' %}"><span>Добавить</span></a>
         {% for i in otdels %}
            <p>
                <a href="{% url 'otdels:detail' id=i.id %}">{{i.name}}</a>
