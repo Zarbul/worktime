@@ -42,7 +42,7 @@ def new(request, id=None):
             return redirect('index')
     else:
         formWorker = WorkerNameForm()
-        formContact = ContactForm
+        formContact = ContactForm()
 
 
     content = {

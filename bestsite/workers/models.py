@@ -1,31 +1,36 @@
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
 # from otdels.models import Otdel
 
 
 class Worker(models.Model):
-    name = models.CharField('Имя', max_length = 100)
-    fname = models.CharField('Фамилия', max_length = 100)
+    name = models.CharField('Имя', max_length=100)
+    fname = models.CharField('Фамилия', max_length=100)
     status = models.IntegerField(choices=((0, 'new'), (1, 'work'), (2, 'deleled')))
     # status = models.IntegerField(choices=)
-    create_date = models.DateTimeField('Дата создания', default = timezone.now)
-    balance = models.FloatField('Баланс денег', default = 0)
-    otdel = models.ForeignKey('otdels.Otdel', default=0)    #
+    create_date = models.DateTimeField('Дата создания', default=timezone.now)
+    balance = models.FloatField('Баланс денег', default=0)
+    otdel = models.ForeignKey('otdels.Otdel', default=0)  #
+
     # otd = Otdel()
 
     class Meta:
         """Служит для перевода класса Post"""
         verbose_name = 'Рабочий'
         verbose_name_plural = 'Рабочие'
+
     def __str__(self):
         return '{} {}'.format(self.name, self.fname)
+
     def __del__(self):
         pass
 
+
 class Contact(models.Model):
-    type_contact = models.IntegerField('Тип контакта (телефон / e-mail)', choices = ((0, 'phone'), (1, 'e-mail')))
+    type_contact = models.IntegerField('Тип контакта (телефон / e-mail)', choices=((0, 'phone'), (1, 'e-mail')))
     contact = models.CharField('Контакт', max_length=256)
     worker = models.ForeignKey('Worker')
 
@@ -51,8 +56,6 @@ class Adress(models.Model):
         verbose_name_plural = 'Адреса'
 
     def __str__(self):
-        return 'Домашний адрес: {}, {}, {}, {}, {}, {}'.format(self.indx, self.region, self.sity, self.street, self.home,
-                                                                 self.flat)
-
-
-
+        return 'Домашний адрес: {}, {}, {}, {}, {}, {}'.format(self.indx, self.region, self.sity, self.street,
+                                                               self.home,
+                                                               self.flat)

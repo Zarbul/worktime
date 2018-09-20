@@ -38,12 +38,12 @@ def new(request, id=None):
             # return redirect('detail', id=post.id)
             return redirect('otdels:index')
     else:
-        formWorker = OtdelsNameForm()
+        formOtdels = OtdelsNameForm()
         # formContact = ContactForm
 
 
     content = {
-        'form': formWorker,
+        'form': formOtdels,
         # 'contact': formContact,
        # 'fname': form.fname,
     }

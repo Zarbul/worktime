@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ~/bin/github/venv/worktime/
 source bin/activate
-python bestsite/manage.py runserver
+python bestsite/manage.py runserver 8000
